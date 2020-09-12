@@ -22,14 +22,16 @@ class Baraja < Carta
         puts
     end
     def sacar
-        @sacar = cartas_barajadas.pop
-        puts @sacar
+        n = 1
+        n.times do
+            print cartas_barajadas.pop(1)
+        end
+        puts
     end
     def repartir
-        arr = cartas_barajadas
-        n=5
+        n=1
         n.times do
-          print "#{arr.pop} "
+          print cartas_barajadas.pop(5)
         end
         puts
     end
