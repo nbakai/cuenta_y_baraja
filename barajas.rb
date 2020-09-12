@@ -1,6 +1,6 @@
 require_relative 'carta'
 class Baraja < Carta
-    attr_accessor :cartas
+    attr_accessor :cartas, :sacar, :cartas_barajadas
     def initialize()
         super
         n = 0
@@ -17,21 +17,25 @@ class Baraja < Carta
         puts
     end
     def barajar
-        
+        @cartas_barajadas = @cartas.shuffle
+        print cartas_barajadas
+        puts
     end
     def sacar
-        
+        @sacar = cartas_barajadas.pop
+        puts @sacar
     end
     def repartir
-        
+        arr = cartas_barajadas
+        n=5
+        n.times do
+          print "#{arr.pop} "
+        end
+        puts
     end
 end
 baraja = Baraja.new
-# Crear la clase baraja en el archivo barajas.rb con el atributo cartas, el cual será un arreglo.
-# (1punto)
-# Al crear una baraja (constructor) se deben generar todas las combinaciones de números y pinta
-# y guardarse dentro del arreglo cartas.
-# Crear el método barajar que debe desordenar el arreglo de cartas Tip: Utilizar .shuffle
-# Crear el método sacar que permita retirar la primera carta de la baraja Tip: Utilizar .pop
-# (1punto)
-# Crear el método repartir mano que devolverá un arreglo con las primeras 5 cartas de la baraja.
+baraja.barajar
+baraja.sacar
+baraja.repartir
+
